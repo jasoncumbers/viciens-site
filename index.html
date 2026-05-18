@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Viciens</title>
+<meta name="description" content="Viciens is the holding company for MAXFORCE, Peregrin, and Luminade." />
+
+<!-- Favicons: prefers-color-scheme aware -->
+<link rel="icon" type="image/svg+xml" href="brand/favicon.svg" media="(prefers-color-scheme: light)" />
+<link rel="icon" type="image/svg+xml" href="brand/favicon-dark.svg" media="(prefers-color-scheme: dark)" />
+<link rel="icon" type="image/svg+xml" href="brand/favicon.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=boska@500,500i,700&f[]=synonym@400,500,600&display=swap" rel="stylesheet">
+
+<style>
+  /* ===== v1.9 locked palette ===== */
+  :root {
+    --vellum:       #F4F1EA;
+    --vellum-deep:  #DBD3C2;
+    --ink-900:      #1B1E24;
+    --ink-700:      #3D424E;
+    --ink-500:      #7A8092;
+    --ink-300:      #C8CCD4;
+    --lapis:        #1F3A6B;
+    --lapis-tint:   #DCE2EE;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { background: var(--vellum); }
+  body {
+    font-family: 'Synonym', ui-sans-serif, system-ui, sans-serif;
+    color: var(--ink-900);
+    background: var(--vellum);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.55;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page {
+    flex: 1;
+    max-width: 720px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 72px 48px 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  @media (max-width: 640px) {
+    .page { padding: 48px 24px 32px; }
+  }
+
+  .wordmark-band {
+    background: var(--ink-900);
+    width: 100%;
+    padding: 88px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+  }
+  .wordmark {
+    display: block;
+    width: clamp(280px, 42vw, 480px);
+    height: auto;
+  }
+  @media (max-width: 640px) {
+    .wordmark-band { padding: 56px 20px; min-height: 200px; }
+    .wordmark { width: clamp(220px, 60vw, 320px); }
+  }
+
+  .statement {
+    font-family: 'Boska', ui-serif, Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(24px, 3.4vw, 34px);
+    line-height: 1.3;
+    letter-spacing: -0.005em;
+    color: var(--ink-900);
+    margin: 0 0 56px 0;
+    max-width: 580px;
+    text-align: center;
+  }
+
+  .ventures {
+    border-top: 1px solid var(--lapis);
+    padding-top: 28px;
+    margin-bottom: 72px;
+    width: 100%;
+    max-width: 580px;
+    text-align: center;
+  }
+  .venture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--ink-300);
+  }
+  .venture:last-child { border-bottom: none; }
+  .venture .name {
+    font-family: 'Boska', ui-serif, Georgia, serif;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-900);
+  }
+  .venture .link {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--lapis);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    transition: opacity 160ms ease;
+  }
+  .venture .link:hover { text-decoration: underline; }
+
+  .founder {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-700);
+    margin: 0;
+    text-align: center;
+  }
+  .founder a {
+    color: var(--lapis);
+    text-decoration: none;
+    border-bottom: 1px solid var(--lapis-tint);
+    transition: border-color 160ms ease;
+  }
+  .founder a:hover { border-bottom-color: var(--lapis); }
+
+  footer {
+    margin-top: auto;
+    padding: 32px 48px;
+    max-width: 720px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-500);
+    border-top: 1px solid var(--ink-300);
+    text-align: center;
+  }
+  @media (max-width: 640px) {
+    footer { padding: 24px 24px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="wordmark-band">
+    <img src="brand/wordmark-dark.svg" alt="VICIENS" class="wordmark" />
+  </div>
+
+  <div class="page">
+
+    <p class="statement">
+      Viciens is the holding company for MAXFORCE, Peregrin, and Luminade.
+    </p>
+
+    <div class="ventures">
+      <div class="venture">
+        <span class="name">MAXFORCE</span>
+        <a class="link" href="https://maxforce.ai">maxforce.ai &rarr;</a>
+      </div>
+      <div class="venture">
+        <span class="name">Peregrin</span>
+        <a class="link" href="https://peregrin.co">peregrin.co &rarr;</a>
+      </div>
+      <div class="venture">
+        <span class="name">Luminade</span>
+        <a class="link" href="https://luminade.co">luminade.co &rarr;</a>
+      </div>
+    </div>
+
+    <p class="founder">
+      Founder &middot; Jason Cumbers &middot; <a href="https://jasonpcumbers.com">jasonpcumbers.com</a>
+    </p>
+
+  </div>
+
+  <footer>
+    &copy; 2026 Viciens, LLC &mdash; All rights reserved.
+  </footer>
+
+</body>
+</html>
