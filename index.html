@@ -50,26 +50,26 @@
     max-width: 720px;
     width: 100%;
     margin: 0 auto;
-    padding: 72px 48px 48px;
+    padding: 48px 48px 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   @media (max-width: 640px) {
-    .page { padding: 40px 20px 28px; }
+    .page { padding: 24px 20px 14px; }
   }
   @media (max-width: 420px) {
-    .page { padding: 32px 18px 24px; }
+    .page { padding: 16px 18px 10px; }
   }
 
   .wordmark-band {
     background: var(--ink-900);
     width: 100%;
-    padding: 88px 24px;
+    padding: 64px 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 280px;
+    min-height: 230px;
   }
   .wordmark {
     display: block;
@@ -77,11 +77,11 @@
     height: auto;
   }
   @media (max-width: 640px) {
-    .wordmark-band { padding: 48px 20px; min-height: 180px; }
+    .wordmark-band { padding: 28px 20px; min-height: 140px; }
     .wordmark { width: clamp(200px, 56vw, 280px); }
   }
   @media (max-width: 420px) {
-    .wordmark-band { padding: 40px 16px; min-height: 152px; }
+    .wordmark-band { padding: 20px 16px; min-height: 116px; }
     .wordmark { width: clamp(180px, 62vw, 240px); }
   }
 
@@ -92,26 +92,35 @@
     line-height: 1.3;
     letter-spacing: -0.005em;
     color: var(--ink-900);
-    margin: 0 0 56px 0;
+    margin: 0 0 32px 0;
     max-width: 580px;
     text-align: center;
+  }
+  @media (max-width: 640px) {
+    .statement { margin: 0 0 20px 0; font-size: clamp(20px, 5.2vw, 26px); }
   }
 
   .ventures {
     border-top: 1px solid var(--lapis);
-    padding-top: 28px;
-    margin-bottom: 72px;
+    padding-top: 18px;
+    margin-bottom: 36px;
     width: 100%;
     max-width: 580px;
     text-align: center;
+  }
+  @media (max-width: 640px) {
+    .ventures { padding-top: 12px; margin-bottom: 20px; }
   }
   .venture {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 4px;
-    padding: 14px 0;
+    padding: 10px 0;
     border-bottom: 1px dashed var(--ink-300);
+  }
+  @media (max-width: 640px) {
+    .venture { padding: 7px 0; gap: 2px; }
   }
   .venture:last-child { border-bottom: none; }
   .venture .name {
@@ -153,7 +162,7 @@
 
   footer {
     margin-top: auto;
-    padding: 32px 48px;
+    padding: 18px 48px;
     max-width: 720px;
     width: 100%;
     margin-left: auto;
@@ -167,7 +176,7 @@
     text-align: center;
   }
   @media (max-width: 640px) {
-    footer { padding: 24px 24px; }
+    footer { padding: 12px 20px; font-size: 10px; }
   }
 </style>
 </head>
