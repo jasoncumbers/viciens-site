@@ -3,11 +3,13 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Viciens</title>
-<meta name="description" content="Viciens is the holding company for MAXFORCE, Peregrin, and Luminade." />
+<title>Viciens — operator-built software</title>
+<meta name="description" content="Viciens is a software house run by an operator. Every product is built inside a real company and used in real work before it is sold. Octics, Calenvite, CaptiCam, Peregrin, Curanor, Trimeer, Luminade — and 127 Foundry." />
+<meta property="og:title" content="Viciens" />
+<meta property="og:description" content="Operator-built software. Proven in our own organizations. Now yours to scale with." />
+<meta property="og:type" content="website" />
 
-<!-- Single adaptive favicon: in-SVG @media prefers-color-scheme handles light/dark -->
-<link rel="icon" type="image/svg+xml" href="brand/favicon.svg?v=2" />
+<link rel="icon" type="image/svg+xml" href="brand/favicon.svg?v=3" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,203 +20,310 @@
 <style>
   /* ===== v1.9 locked palette ===== */
   :root {
-    --vellum:       #F4F1EA;
-    --vellum-deep:  #DBD3C2;
-    --ink-900:      #1B1E24;
-    --ink-700:      #3D424E;
-    --ink-500:      #7A8092;
-    --ink-300:      #C8CCD4;
-    --lapis:        #1F3A6B;
-    --lapis-tint:   #DCE2EE;
+    --vellum:        #F4F1EA;
+    --vellum-light:  #F9F7F1;
+    --vellum-deep:   #DBD3C2;
+    --vellum-shadow: #C5BCA8;
+    --ink-900: #1B1E24;
+    --ink-700: #3D424E;
+    --ink-500: #7A8092;
+    --ink-300: #C8CCD4;
+    --ink-200: #DCDDE2;
+    --lapis:      #1F3A6B;
+    --lapis-deep: #14264A;
+    --lapis-tint: #DCE2EE;
+
+    --serif: 'Boska', ui-serif, Georgia, 'Times New Roman', serif;
+    --sans:  'Synonym', ui-sans-serif, system-ui, sans-serif;
+    --mono:  'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    --maxw: 1080px;
+    --gutter: clamp(20px, 5vw, 64px);
   }
 
   * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-  html { background: var(--vellum); -webkit-text-size-adjust: 100%; }
+  html { background: var(--vellum); -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
   body {
-    font-family: 'Synonym', ui-sans-serif, system-ui, sans-serif;
+    margin: 0;
+    font-family: var(--sans);
     color: var(--ink-900);
     background: var(--vellum);
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    line-height: 1.55;
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
   }
+  a { color: inherit; }
+  ::selection { background: var(--lapis-tint); }
 
-  .page {
-    flex: 1;
-    max-width: 720px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 48px 48px 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  @media (max-width: 640px) {
-    .page { padding: 24px 20px 14px; }
-  }
-  @media (max-width: 420px) {
-    .page { padding: 16px 18px 10px; }
-  }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
 
-  .wordmark-band {
-    background: var(--ink-900);
-    width: 100%;
-    padding: 64px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 230px;
-  }
-  .wordmark {
-    display: block;
-    width: clamp(280px, 42vw, 480px);
-    height: auto;
-  }
-  @media (max-width: 640px) {
-    .wordmark-band { padding: 28px 20px; min-height: 140px; }
-    .wordmark { width: clamp(200px, 56vw, 280px); }
-  }
-  @media (max-width: 420px) {
-    .wordmark-band { padding: 20px 16px; min-height: 116px; }
-    .wordmark { width: clamp(180px, 62vw, 240px); }
-  }
-
-  .statement {
-    font-family: 'Boska', ui-serif, Georgia, serif;
-    font-weight: 500;
-    font-size: clamp(24px, 3.4vw, 34px);
-    line-height: 1.3;
-    letter-spacing: -0.005em;
-    color: var(--ink-900);
-    margin: 0 0 32px 0;
-    max-width: 580px;
-    text-align: center;
-  }
-  @media (max-width: 640px) {
-    .statement { margin: 0 0 20px 0; font-size: clamp(20px, 5.2vw, 26px); }
-  }
-
-  .ventures {
-    border-top: 1px solid var(--lapis);
-    padding-top: 18px;
-    margin-bottom: 36px;
-    width: 100%;
-    max-width: 580px;
-    text-align: center;
-  }
-  @media (max-width: 640px) {
-    .ventures { padding-top: 12px; margin-bottom: 20px; }
-  }
-  .venture {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    padding: 10px 0;
-    border-bottom: 1px dashed var(--ink-300);
-  }
-  @media (max-width: 640px) {
-    .venture { padding: 7px 0; gap: 2px; }
-  }
-  .venture:last-child { border-bottom: none; }
-  .venture .name {
-    font-family: 'Boska', ui-serif, Georgia, serif;
-    font-weight: 700;
-    font-size: 17px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--ink-900);
-  }
-  .venture .link {
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--lapis);
-    text-decoration: none;
-    letter-spacing: 0.06em;
-    transition: opacity 160ms ease;
-  }
-  .venture .link:hover { text-decoration: underline; }
-
-  .founder {
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  .eyebrow {
+    font-family: var(--mono);
     font-size: 11px;
     font-weight: 600;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--ink-700);
-    margin: 0;
-    text-align: center;
-  }
-  .founder a {
     color: var(--lapis);
-    text-decoration: none;
-    border-bottom: 1px solid var(--lapis-tint);
-    transition: border-color 160ms ease;
+    margin: 0 0 18px 0;
   }
-  .founder a:hover { border-bottom-color: var(--lapis); }
+  .eyebrow.muted { color: var(--ink-500); }
 
-  footer {
-    margin-top: auto;
-    padding: 18px 48px;
-    max-width: 720px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
-    font-size: 10.5px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--ink-500);
-    border-top: 1px solid var(--ink-300);
-    text-align: center;
+  /* ===== sticky nav ===== */
+  nav.top {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--vellum) 88%, transparent);
+    backdrop-filter: saturate(120%) blur(8px);
+    -webkit-backdrop-filter: saturate(120%) blur(8px);
+    border-bottom: 1px solid var(--ink-200);
   }
-  @media (max-width: 640px) {
-    footer { padding: 12px 20px; font-size: 10px; }
+  nav.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 84px; }
+  nav.top .nav-mark { height: 24px; width: auto; display: block; }
+  nav.top .links { display: flex; gap: clamp(22px, 3.4vw, 44px); }
+  nav.top .links a {
+    font-family: var(--mono); font-size: 13.5px; font-weight: 600;
+    letter-spacing: 0.13em; text-transform: uppercase;
+    color: var(--ink-700); text-decoration: none;
+    transition: color 160ms ease;
+  }
+  nav.top .links a:hover { color: var(--lapis); }
+  @media (max-width: 560px) { nav.top .links a:nth-child(2) { display: none; } }
+
+  section { scroll-margin-top: 96px; }
+
+  /* ===== hero ===== */
+  .hero { padding: clamp(72px, 13vh, 168px) 0 clamp(56px, 9vh, 116px); text-align: center; }
+  .hero__mark { width: clamp(300px, 58vw, 720px); height: auto; display: block; margin: 0 auto clamp(34px, 5vw, 56px); }
+  .hero__line {
+    font-family: var(--serif); font-weight: 500;
+    font-size: clamp(24px, 3.6vw, 40px); line-height: 1.26; letter-spacing: -0.01em;
+    color: var(--ink-900); max-width: none; margin: 0 auto;
+  }
+  .hero__line span { display: block; }
+  .hero__stats {
+    display: flex; justify-content: center; flex-wrap: wrap;
+    gap: clamp(20px, 5vw, 56px);
+    margin-top: clamp(40px, 6vw, 64px);
+    padding-top: 26px; border-top: 1px solid var(--lapis);
+    max-width: 620px; margin-left: auto; margin-right: auto;
+  }
+  .stat { text-align: center; }
+  .stat .n { font-family: var(--serif); font-weight: 700; font-size: clamp(26px, 3.4vw, 38px); line-height: 1; color: var(--ink-900); }
+  .stat .l { font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-500); margin-top: 9px; }
+
+  /* ===== thesis ===== */
+  .thesis { padding: clamp(56px, 9vw, 104px) 0; border-top: 1px solid var(--ink-200); }
+  .thesis__body { font-family: var(--serif); font-weight: 500; font-size: clamp(20px, 2.5vw, 27px); line-height: 1.5; color: var(--ink-800, var(--ink-900)); max-width: 30ch; }
+  .thesis__body em { font-style: italic; }
+  .thesis__lead { max-width: 760px; }
+  .thesis p.fine { font-family: var(--sans); font-size: clamp(15px,1.6vw,17px); line-height: 1.7; color: var(--ink-700); max-width: 60ch; margin: 26px 0 0; }
+
+  /* ===== products ===== */
+  .products { padding: clamp(40px, 6vw, 72px) 0 clamp(24px,4vw,48px); border-top: 1px solid var(--ink-200); }
+  .products__intro { font-family: var(--sans); font-size: clamp(15px,1.7vw,18px); line-height: 1.65; color: var(--ink-700); max-width: 56ch; margin: 0 0 clamp(24px,4vw,44px); }
+
+  .band {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+    gap: clamp(12px, 4vw, 56px);
+    align-items: start;
+    padding: clamp(28px, 3.6vw, 40px) 0;
+    border-top: 1px solid var(--lapis);
+  }
+  .band:last-of-type { border-bottom: 1px solid var(--lapis); }
+  .band__name { font-family: var(--serif); font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; font-size: clamp(30px, 5vw, 56px); line-height: 0.98; color: var(--ink-900); }
+  .band__by { display: block; font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--lapis); margin-top: 14px; }
+  .band__right { padding-top: 0; }
+  .band__desc { font-family: var(--sans); font-size: clamp(16px, 1.9vw, 20px); line-height: 1.55; color: var(--ink-700); margin: 0; max-width: 42ch; }
+  .band__link { display: inline-block; margin-top: 16px; font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: 0.05em; color: var(--lapis); text-decoration: none; border-bottom: 1px solid var(--lapis-tint); padding-bottom: 2px; transition: border-color 160ms ease; }
+  .band__link:hover { border-bottom-color: var(--lapis); }
+  .band__status { display: inline-block; margin-top: 16px; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-500); }
+
+  /* flagship */
+  .band--flagship {
+    background: var(--vellum-light);
+    border: 1px solid var(--ink-200);
+    border-radius: 22px;
+    box-shadow: 0 1px 2px rgba(27,30,36,0.04), 0 26px 52px -34px rgba(27,30,36,0.20);
+    margin: clamp(4px,1vw,12px) 0 clamp(30px,4.5vw,52px);
+    padding: clamp(30px, 4.4vw, 56px);
+  }
+  .band--flagship .band__name { font-size: clamp(38px, 7vw, 76px); }
+  .band--flagship .band__desc { font-size: clamp(17px, 2.1vw, 22px); color: var(--ink-900); }
+  .flag-eyebrow { font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lapis); margin-bottom: 12px; }
+
+  /* services divider */
+  .services { padding-top: clamp(36px,5vw,56px); }
+  .services .band { border-top: 1px solid var(--ink-200); }
+
+  /* ===== the standard (dark fold) ===== */
+  .fold { background: var(--ink-900); color: var(--vellum); padding: clamp(80px, 13vw, 168px) 0; margin-top: clamp(48px,7vw,88px); }
+  .fold .eyebrow { color: var(--lapis-tint); }
+  .fold__big { font-family: var(--serif); font-weight: 500; font-size: clamp(26px, 4.4vw, 52px); line-height: 1.24; letter-spacing: -0.01em; color: var(--vellum); max-width: 20ch; margin: 0; text-wrap: balance; }
+  .fold__big em { font-style: italic; }
+  .fold__sub { font-family: var(--sans); font-size: clamp(16px,1.9vw,20px); line-height: 1.7; color: var(--ink-300); max-width: 52ch; margin: 32px 0 0; }
+  .fold__credo { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: clamp(18px,2vw,22px); color: var(--lapis-tint); margin: 48px 0 0; }
+
+  /* ===== correspondence ===== */
+  .contact { padding: clamp(72px, 11vw, 144px) 0; text-align: center; }
+  .contact__line { font-family: var(--serif); font-weight: 500; font-size: clamp(20px, 2.6vw, 30px); line-height: 1.4; color: var(--ink-900); max-width: 22ch; margin: 0 auto 28px; text-wrap: balance; }
+  .contact__email { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: clamp(24px, 4vw, 44px); color: var(--lapis); text-decoration: none; border-bottom: 1px solid var(--lapis-tint); padding-bottom: 4px; transition: border-color 160ms ease; }
+  .contact__email:hover { border-bottom-color: var(--lapis); }
+  .contact__founder { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-500); margin: 36px 0 0; }
+  .contact__founder a { color: var(--lapis); text-decoration: none; border-bottom: 1px solid var(--lapis-tint); }
+
+  /* ===== footer ===== */
+  footer { border-top: 1px solid var(--ink-200); padding: clamp(40px,6vw,64px) 0 clamp(32px,5vw,48px); }
+  footer .wrap { display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; }
+  footer .signet { width: 30px; height: auto; opacity: 0.92; }
+  footer .legal { font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-500); }
+  footer .roster { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-300); line-height: 1.9; max-width: 720px; }
+
+  @media (max-width: 680px) {
+    .band { grid-template-columns: 1fr; gap: 10px; }
+    .band__right { padding-top: 0; }
+    .thesis__body { max-width: none; }
   }
 </style>
 </head>
 <body>
 
-  <div class="wordmark-band">
-    <img src="brand/wordmark-dark.svg" alt="VICIENS" class="wordmark" />
-  </div>
-
-  <div class="page">
-
-    <p class="statement">
-      Viciens is the holding company for MAXFORCE, Peregrin, and Luminade.
-    </p>
-
-    <div class="ventures">
-      <div class="venture">
-        <span class="name">MAXFORCE</span>
-        <a class="link" href="https://maxforce.ai">maxforce.ai &rarr;</a>
-      </div>
-      <div class="venture">
-        <span class="name">Peregrin</span>
-        <a class="link" href="https://peregrin.co">peregrin.co &rarr;</a>
-      </div>
-      <div class="venture">
-        <span class="name">Luminade</span>
-        <a class="link" href="https://luminade.co">luminade.co &rarr;</a>
+  <!-- ============ NAV ============ -->
+  <nav class="top">
+    <div class="wrap">
+      <a href="#top" aria-label="Viciens"><img src="brand/wordmark-light.svg" alt="VICIENS" class="nav-mark" /></a>
+      <div class="links">
+        <a href="#products">Products</a>
+        <a href="#standard">Approach</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
+  </nav>
 
-    <p class="founder">
-      Founder &middot; Jason Cumbers &middot; <a href="https://jasonpcumbers.com">jasonpcumbers.com</a>
-    </p>
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="top">
+    <div class="wrap">
+      <img src="brand/wordmark-light.svg" alt="VICIENS" class="hero__mark" />
+      <!-- Hero line set 2026-06-28 — three sentences, three lines (line = tagline) -->
+      <p class="hero__line">
+        <span>Operator-built software.</span>
+        <span>Proven in our own organizations.</span>
+        <span>Now yours to scale with.</span>
+      </p>
+      <div class="hero__stats">
+        <div class="stat"><div class="n">7</div><div class="l">Products</div></div>
+        <div class="stat"><div class="n">1</div><div class="l">Consulting arm</div></div>
+        <div class="stat"><div class="n">2026</div><div class="l">Founded</div></div>
+      </div>
+    </div>
+  </header>
 
-  </div>
+  <!-- ============ THESIS ============ -->
+  <section class="thesis">
+    <div class="wrap thesis__lead">
+      <p class="eyebrow">The house</p>
+      <p class="thesis__body">Viciens is a software house run by an operator. Every product here began as a tool we needed to run our own company and couldn&rsquo;t buy.</p>
+      <p class="fine">So we built it, ran it on real work, and kept the ones that held up. What clears that bar gets offered to other operators. What doesn&rsquo;t, doesn&rsquo;t ship. Generic software is built by people who have never had to run the thing it sells you. Ours wasn&rsquo;t.</p>
+    </div>
+  </section>
 
+  <!-- ============ PRODUCTS ============ -->
+  <section class="products" id="products">
+    <div class="wrap">
+      <p class="eyebrow">What&rsquo;s under the roof</p>
+      <p class="products__intro">Each one is <em>by Viciens</em> &mdash; built by an operator, used inside a real company before it was offered for sale, and held to one standard.</p>
+
+      <div class="band">
+        <div><div class="band__name">Octics</div><span class="band__by">by Viciens</span></div>
+        <div class="band__right">
+          <p class="band__desc">Your whole tech stack, under one roof.</p>
+          <span class="band__status">In build</span>
+        </div>
+      </div>
+
+      <div class="band">
+        <div><div class="band__name">Calenvite</div><span class="band__by">by Viciens</span></div>
+        <div class="band__right">
+          <p class="band__desc">Scheduling that books around what matters.</p>
+          <a class="band__link" href="https://calenvite.com">calenvite.com &rarr;</a>
+        </div>
+      </div>
+
+      <div class="band">
+        <div><div class="band__name">CaptiCam</div><span class="band__by">by Viciens</span></div>
+        <div class="band__right">
+          <p class="band__desc">Field photo-documentation for trades and crews.</p>
+          <span class="band__status">In build</span>
+        </div>
+      </div>
+
+      <div class="band">
+        <div><div class="band__name">Peregrin</div><span class="band__by">by Viciens</span></div>
+        <div class="band__right">
+          <p class="band__desc">AI social media, produced and managed end to end.</p>
+          <span class="band__status">In build</span>
+        </div>
+      </div>
+
+      <div class="band">
+        <div><div class="band__name">Curanor</div><span class="band__by">by Viciens</span></div>
+        <div class="band__right">
+          <p class="band__desc">E-signature and document templating.</p>
+          <a class="band__link" href="https://curanor.com">curanor.com &rarr;</a>
+        </div>
+      </div>
+
+      <div class="band">
+        <div><div class="band__name">Trimeer</div><span class="band__by">by Viciens</span></div>
+        <div class="band__right">
+          <p class="band__desc">A complete brand system, built to order.</p>
+          <a class="band__link" href="https://trimeer.com">trimeer.com &rarr;</a>
+        </div>
+      </div>
+
+      <div class="band">
+        <div><div class="band__name">Luminade</div><span class="band__by">by Viciens</span></div>
+        <div class="band__right">
+          <p class="band__desc">A website builder for small businesses.</p>
+          <a class="band__link" href="https://luminade.co">luminade.co &rarr;</a>
+        </div>
+      </div>
+
+      <div class="band">
+        <div><div class="band__name">127&nbsp;Foundry</div><span class="band__by">by Viciens</span></div>
+        <div class="band__right">
+          <p class="band__desc">Software consulting, operator to operator.</p>
+          <a class="band__link" href="https://127foundry.com">127foundry.com &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE STANDARD (dark fold) ============ -->
+  <section class="fold" id="standard">
+    <div class="wrap">
+      <p class="eyebrow">The standard</p>
+      <p class="fold__big"><em>by Viciens</em> means one operator put his own company on it before he asked you to.</p>
+      <p class="fold__sub">Built by an operator. Used in real work before it was sold. Held to one standard &mdash; nothing under this roof gets a pass.</p>
+      <p class="fold__credo">Clarity is owed.</p>
+    </div>
+  </section>
+
+  <!-- ============ CORRESPONDENCE ============ -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Correspondence</p>
+      <p class="contact__line">For anything about Viciens, or any product under it, write us directly.</p>
+      <a class="contact__email" href="mailto:hi@viciens.com">hi@viciens.com</a>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
   <footer>
-    &copy; 2026 Viciens, LLC &mdash; All rights reserved.
+    <div class="wrap">
+      <img src="brand/monogram-light.svg" alt="" class="signet" />
+      <div class="legal">&copy; 2026 Viciens, LLC &mdash; All rights reserved.</div>
+      <div class="roster">Octics &middot; Calenvite &middot; CaptiCam &middot; Peregrin &middot; Curanor &middot; Trimeer &middot; Luminade &middot; 127 Foundry</div>
+    </div>
   </footer>
 
 </body>
